@@ -1,0 +1,108 @@
+class Matrix{
+
+// assuming the matrices are not jagged as its not like that in mathematics for matrices
+    int mat1[][] = {
+        {1,2,3,-1},
+        {4,5,6,-2},
+        {7,8,9,-3},
+    };
+
+    int mat2[][] = {
+        {10,20,30,-1},
+        {40,50,60,-2},
+        {70,80,90,-3},
+    };
+
+    public static void main(String args[]){
+
+        Matrix m = new Matrix(); // so i can use non static methods of class into static main 
+
+       int[][] mat3 = m.addMat(m.mat1,m.mat2);
+       System.out.print("addition of matrices \n");
+       m.printMat(mat3);
+
+       mat3 = m.subMat(m.mat1,m.mat2);
+       System.out.print("Subtraction of matrices \n");
+       m.printMat(mat3);
+
+
+       mat3 = m.tranpose(m.mat1);
+       System.out.print("transpose of matrix 1 \n");
+       m.printMat(mat3);
+
+
+
+
+    }
+
+    private int[][] addMat(int mat1[][],int mat2[][]){
+
+        if(mat1.length != mat2.length || mat1[0].length != mat2[0].length){
+            return null;
+        }
+        
+        // int mat3[mat1.length][mat1[0].length];
+
+        int[][] mat3 = new int[mat1.length][mat1[0].length];
+
+        int i=0,j=0; 
+
+        for(i=0 ; i<mat1.length ; i++){
+            for(j=0 ; j<mat1[0].length;j++){
+                mat3[i][j] = mat1[i][j] + mat2[i][j];
+            }
+        }
+    return mat3;
+
+    }
+
+    private void printMat(int[][] mat) {
+    for (int i = 0; i < mat.length; i++) {
+        for (int j = 0; j < mat[i].length; j++) {
+            System.out.print(mat[i][j] + " ");
+        }
+        System.out.println();
+    }
+        System.out.println();
+}
+
+private int[][] subMat(int mat1[][],int mat2[][]){
+
+        if(mat1.length != mat2.length || mat1[0].length != mat2[0].length){
+            return null;
+        }
+        
+        // int mat3[mat1.length][mat1[0].length];
+
+        int[][] mat3 = new int[mat1.length][mat1[0].length];
+
+        int i=0,j=0; 
+
+        for(i=0 ; i<mat1.length ; i++){
+            for(j=0 ; j<mat1[0].length;j++){
+                mat3[i][j] = mat2[i][j] - mat1[i][j];
+            }
+        }
+    return mat3;
+
+    }
+
+// tranpose a given matrix
+
+private int[][] tranpose(int mat[][]){
+    
+    int[][] t_mat = new int[mat[0].length][mat.length];
+
+    int i,j;
+
+    for(i=0 ; i<mat.length ; i++){
+        for(j=0 ; j<mat[0].length ; j++){
+            t_mat[j][i] = mat[i][j];
+        }
+    }
+
+    return t_mat;
+}
+
+
+}
