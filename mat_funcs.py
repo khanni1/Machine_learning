@@ -8,8 +8,8 @@ def is_square_mat(A):
     return True
 
 def Minor(A,x,y):
-    x = x-1
-    y = y-1
+    # x = x-1
+    # y = y-1
     # -1 for compensation math index start from 1 while list starts with 0 thats it 
     T = []
     
@@ -27,7 +27,32 @@ def Minor(A,x,y):
         
     return T
                 
-                
+         
+def det(A):
+    # just taking the first row
+    if(not is_square_mat(A)):
+        return False,"Not a square matrix"
+    
+    if(len(A) == 1):
+    # if 1x1 mat
+        return A[0][0] 
+
+    if(len(A) == 2):
+        # if 2x2 mat
+       return A[0][0]*A[1][1] - A[0][1]*A[1][0]
+        
+    
+    i = 0 
+    sum = 0
+    for j in range (0,len(A),1):
+        if((i+j)%2==1):
+            sign = -1
+        else:
+            sign = 1
+        sum = sum + (A[i][j] * det(Minor(A,i,j)) * sign)
+        
+    return sum
+        
                 
         
 
@@ -37,4 +62,8 @@ X = [
     [5,6,8],
     ]
 
-print(Minor(X,1,3))
+X1 = [
+    [3,2],
+    [1,5]
+]
+print(det(X1))
