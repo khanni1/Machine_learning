@@ -7,6 +7,15 @@ def is_square_mat(A):
         
     return True
 
+def is_jagged(A):
+    x = len(A[0])
+    for i in range(1,len(A),1):
+        if(x != len(A[i])):
+            return False
+        # returns true if not jagged
+    return True
+        
+
 def Minor(A,x,y):
     # x = x-1
     # y = y-1
@@ -54,7 +63,12 @@ def det(A):
     return sum
         
                 
-        
+def mat_mul(A,B):
+    if(not is_jagged(A) or not is_jagged(B) or len(A[0]) != len(B)):
+        return False,"conditions not suitable for mutiplication"
+    # else ...
+    
+          
 
 X = [
     [1,2,4],
