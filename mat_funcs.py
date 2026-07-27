@@ -87,6 +87,21 @@ def mat_mul(A,B):
     if(not isnt_jagged(A) or not isnt_jagged(B) or len(A[0]) != len(B)):
         return False,"conditions not suitable for mutiplication"
     
+    pro = mat_create_ini(len(A),len(B[0])) # mxn . nxp = mxp matrix
+    
+    for i in range(0,len(A),1):
+        for k in range(0,len(B[0]),1):
+            sum = 0
+            for j in range(0,len(A[0])):
+                sum = sum + A[i][j] * B[j][k]
+            pro[i][k] = sum
+            
+
+    return pro
+            
+            
+            
+    
 # ==============================================================
 
 def tranpose(A):
@@ -114,6 +129,17 @@ X = [
 A1 = [
     [3,2],
     [1,5],
-    [3]]
+    [3,2],
+    ]
 
-print(tranpose(A1))
+
+A2 = [
+    [10,20],
+    [30,40],
+]
+
+
+print(mat_mul(A1,A2))
+print()
+for lst in mat_mul(A1,A2):
+    print(lst)
