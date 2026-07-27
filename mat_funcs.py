@@ -1,13 +1,28 @@
 # normal python list of lists best for from sratch matrices else numpy matrices provide their built in functions
-
+def mat_create_ini(rows,cols):
+    temp = []
+    
+    for i in range(0,rows,1):
+        row = []
+        for j in range(0,cols,1):
+            row.append(0)
+        temp.append(row)
+    
+    return temp
+# ==============================================================
 def is_square_mat(A):
+    
+    if (not isnt_jagged(A)):
+        return False
+    
     for i in range(0,len(A),1):
         if(len(A) != len(A[i])):
             return False
         
     return True
+# ==============================================================
 
-def is_jagged(A):
+def isnt_jagged(A):
     x = len(A[0])
     for i in range(1,len(A),1):
         if(x != len(A[i])):
@@ -15,11 +30,15 @@ def is_jagged(A):
         # returns true if not jagged
     return True
         
+# ==============================================================
 
 def Minor(A,x,y):
     # x = x-1
     # y = y-1
     # -1 for compensation math index start from 1 while list starts with 0 thats it 
+    if(not isnt_jagged(A)):
+        return False,"jagged matrix error"
+    
     T = []
     
     for i in range (0,len(A),1):
@@ -36,9 +55,9 @@ def Minor(A,x,y):
         
     return T
                 
-         
+# ==============================================================
+       
 def det(A):
-    # just taking the first row
     if(not is_square_mat(A)):
         return False,"Not a square matrix"
     
@@ -62,13 +81,29 @@ def det(A):
         
     return sum
         
+# ==============================================================
                 
 def mat_mul(A,B):
-    if(not is_jagged(A) or not is_jagged(B) or len(A[0]) != len(B)):
+    if(not isnt_jagged(A) or not isnt_jagged(B) or len(A[0]) != len(B)):
         return False,"conditions not suitable for mutiplication"
-    # else ...
     
+# ==============================================================
+
+def tranpose(A):
+    
+    if(not isnt_jagged(A)):
+        return False
+    
+    t_mat = mat_create_ini(len(A[0]),len(A))
+     #temp variable initialised with 0s
+
+    for i in range(0,len(A),1):
+        for j in range(0,len(A[i]),1):
+            t_mat[j][i] = A[i][j]
+
+    return t_mat
           
+
 
 X = [
     [1,2,4],
@@ -76,8 +111,9 @@ X = [
     [5,6,8],
     ]
 
-X1 = [
+A1 = [
     [3,2],
-    [1,5]
-]
-print(det(X1))
+    [1,5],
+    [3]]
+
+print(tranpose(A1))
