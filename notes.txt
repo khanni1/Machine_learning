@@ -1,5 +1,7 @@
-CHATGPT 
+https://archive.ics.uci.edu/dataset/242/energy+efficiency?utm_source=chatgpt.com
+good source for ml datasets
 
+CHATGPT 
 If your goal is to learn machine learning with the smallest jumps in difficulty, I'd recommend this order:
 
 1. Simple Linear Regression (one feature)
