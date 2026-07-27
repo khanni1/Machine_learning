@@ -15,6 +15,10 @@ def scalar_mul(A:list,s):
 # ==============================================================
 
 def pretty_print_2D(A):
+    if not A:
+        print("error")
+        return False
+        
     for lst in A:
         print(lst)  
             
@@ -32,7 +36,7 @@ def mat_create_ini(rows,cols):
     
     return temp
 # ==============================================================
-def is_square_mat(A):
+def is_square_mat(A:list):
     
     # jagged checked if not jagged means all rows have same length
     if (not isnt_jagged(A)):
@@ -45,7 +49,7 @@ def is_square_mat(A):
     return True
 # ==============================================================
 
-def isnt_jagged(A):
+def isnt_jagged(A:list):
     x = len(A[0])
     for i in range(1,len(A),1):
         if(x != len(A[i])):
@@ -152,7 +156,7 @@ def transpose(A:list):
           
 # ==============================================================
 
-def adj(A:list):
+def adjoint(A:list):
     if(not is_square_mat(A)):
         return False
     
@@ -170,6 +174,14 @@ def adj(A:list):
             
     return transpose(cofacmat)
 
+def mat_inverse(A:list):
+    x = det(A)
+    adj = adjoint(A)
+    if(x==0 or not adj):
+        return False
+    
+    return scalar_mul(adj,1.0/x)
+# ==============================================================
 # main area for testing
 
 X = [
@@ -200,6 +212,8 @@ pretty_print_2D(mat_mul(A1,A2))
 print()
 pretty_print_2D(scalar_mul(X,0.5))
 print()
-print(det(X))
+print(det(A2))
 print()
-pretty_print_2D(adj(Y))
+pretty_print_2D(adjoint(A2))
+print()
+pretty_print_2D(mat_inverse(A2))
