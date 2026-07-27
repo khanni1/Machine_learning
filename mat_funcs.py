@@ -81,18 +81,20 @@ def det(A):
     if(not is_square_mat(A)):
         return False,"Not a square matrix"
     
-    if(len(A) == 1):
+    rows = len(A)
+    
+    if(rows == 1):
     # if 1x1 mat
         return A[0][0] 
 
-    if(len(A) == 2):
+    if(rows == 2):
         # if 2x2 mat
        return A[0][0]*A[1][1] - A[0][1]*A[1][0]
         
     
     i = 0 
     sum = 0
-    for j in range (0,len(A),1):
+    for j in range (0,rows,1):
         if((i+j)%2==1):
             sign = -1
         else:
@@ -107,12 +109,19 @@ def mat_mul(A,B):
     if(not isnt_jagged(A) or not isnt_jagged(B) or len(A[0]) != len(B)):
         return False,"conditions not suitable for mutiplication"
     
-    pro = mat_create_ini(len(A),len(B[0])) # mxn . nxp = mxp matrix
+    Arows = len(A)
+    Acols = len(A[0])
     
-    for i in range(0,len(A),1):
-        for k in range(0,len(B[0]),1):
+    Brows = len(B)
+    Bcols = len(B[0])
+    
+    
+    pro = mat_create_ini(Arows,Bcols) # mxn . nxp = mxp matrix
+    
+    for i in range(0,Arows,1):
+        for k in range(0,Bcols,1):
             sum = 0
-            for j in range(0,len(A[0])):
+            for j in range(0,Acols):
                 sum = sum + A[i][j] * B[j][k]
             pro[i][k] = sum
             
@@ -129,16 +138,20 @@ def tranpose(A):
     if(not isnt_jagged(A)):
         return False
     
-    t_mat = mat_create_ini(len(A[0]),len(A))
+    rows = len(A)
+    cols = len(A[0])
+    
+    t_mat = mat_create_ini(cols,rows)
      #temp variable initialised with 0s
 
-    for i in range(0,len(A),1):
-        for j in range(0,len(A[i]),1):
+    for i in range(0,rows,1):
+        for j in range(0,cols,1):
             t_mat[j][i] = A[i][j]
 
     return t_mat
           
 
+# main area for testing
 
 X = [
     [1,2,4],
