@@ -55,7 +55,7 @@ def isnt_jagged(A):
         
 # ==============================================================
 
-def Minor(A,x,y):
+def Minor(A:list,x,y):
     if(not isnt_jagged(A)):
         return False,"jagged matrix error"
     
@@ -77,7 +77,7 @@ def Minor(A,x,y):
                 
 # ==============================================================
        
-def det(A):
+def det(A:list):
     if(not is_square_mat(A)):
         return False,"Not a square matrix"
     
@@ -105,7 +105,7 @@ def det(A):
         
 # ==============================================================
                 
-def mat_mul(A,B):
+def mat_mul(A:list,B:list):
     if(not isnt_jagged(A) or not isnt_jagged(B) or len(A[0]) != len(B)):
         return False,"conditions not suitable for mutiplication"
     
@@ -133,7 +133,7 @@ def mat_mul(A,B):
     
 # ==============================================================
 
-def tranpose(A):
+def transpose(A:list):
     
     if(not isnt_jagged(A)):
         return False
@@ -150,6 +150,25 @@ def tranpose(A):
 
     return t_mat
           
+# ==============================================================
+
+def adj(A:list):
+    if(not is_square_mat(A)):
+        return False
+    
+    rows = len(A)
+    cols = len(A[0])
+    cofacmat = mat_create_ini(rows,cols)
+    
+    for i in range(0,rows):
+        for j in range(0,cols):
+            sign = 1
+            if ((i+j) % 2 == 1):
+                sign = -1
+                
+            cofacmat[i][j] = det(Minor(A,i,j)) * sign
+            
+    return transpose(cofacmat)
 
 # main area for testing
 
@@ -171,8 +190,16 @@ A2 = [
     [30,40],
 ]
 
+Y = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9],
+]
+
 pretty_print_2D(mat_mul(A1,A2))
 print()
 pretty_print_2D(scalar_mul(X,0.5))
 print()
 print(det(X))
+print()
+pretty_print_2D(adj(Y))
