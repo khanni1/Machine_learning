@@ -34,12 +34,13 @@ def mat_create_ini(rows,cols):
 # ==============================================================
 def is_square_mat(A):
     
+    # jagged checked if not jagged means all rows have same length
     if (not isnt_jagged(A)):
         return False
     
-    for i in range(0,len(A),1):
-        if(len(A) != len(A[i])):
-            return False
+    # if no. of rows != no. of cols (ie is elements in any one of non - jagged row so taken 0th row for simplicity)
+    if(len(A) != len(A[0])):
+        return False
         
     return True
 # ==============================================================
@@ -55,9 +56,6 @@ def isnt_jagged(A):
 # ==============================================================
 
 def Minor(A,x,y):
-    # x = x-1
-    # y = y-1
-    # -1 for compensation math index start from 1 while list starts with 0 thats it 
     if(not isnt_jagged(A)):
         return False,"jagged matrix error"
     
