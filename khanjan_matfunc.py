@@ -171,8 +171,8 @@ A2 = [
     [30,40],
 ]
 
-
-print(mat_mul(A1,A2))
+pretty_print_2D(mat_mul(A1,A2))
 print()
-for lst in mat_mul(A1,A2):
-    print(lst)
+pretty_print_2D(scalar_mul(X,0.5))
+print()
+print(det(X))
