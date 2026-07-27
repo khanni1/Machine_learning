@@ -1,4 +1,26 @@
 # normal python list of lists best for from sratch matrices else numpy matrices provide their built in functions
+
+def scalar_mul(A:list,s):
+    
+    rows = len(A)
+    cols = len(A[0])
+    
+    temp = mat_create_ini(rows,cols)
+    
+    for i in range(0,rows):
+        for j in range(0,cols):
+            temp[i][j] = round(A[i][j] * s,5)
+            
+    return temp
+# ==============================================================
+
+def pretty_print_2D(A):
+    for lst in A:
+        print(lst)  
+            
+
+# ==============================================================
+
 def mat_create_ini(rows,cols):
     temp = []
     
