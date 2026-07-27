@@ -178,7 +178,7 @@ product = mat_mul(A, B)
 
 ---
 
-### 9. `tranpose(A)` *Note: Function name has typo*
+### 9. `transpose(A)`
 Transposes a matrix (swaps rows and columns).
 
 **Parameters:**
@@ -191,7 +191,7 @@ Transposes a matrix (swaps rows and columns).
 **Example:**
 ```python
 A = [[1, 2, 3], [4, 5, 6]]
-transposed = tranpose(A)
+transposed = transpose(A)
 # Result: [[1, 4], [2, 5], [3, 6]]
 ```
 
@@ -221,7 +221,7 @@ determinant = det(X)
 print(f"Determinant: {determinant}")
 
 # Transpose
-transposed = tranpose(X)
+transposed = transpose(X)
 pretty_print_2D(transposed)
 
 # Matrix multiplication
@@ -250,8 +250,6 @@ pretty_print_2D(product)
 - All matrix operations check for jagged matrices and return errors accordingly
 - The determinant calculation uses cofactor expansion (recursive), which can be slow for large matrices
 - Results are rounded to 5 decimal places in scalar multiplication
-- The function name `tranpose` contains a typo (should be `transpose`)
-
 ---
 
 ## Requirements
