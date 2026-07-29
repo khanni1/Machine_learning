@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
 # holds main function
 def f(x):
    return (x**2 - 4*x + 8)
@@ -8,6 +11,9 @@ def df(x):
 
 # GD
 def GD(x,a,e):
+    
+    xlst = [] # no of iterations
+    ylst = [] # cost function
     
     # ini large value just for entering the loop
     step_size = 100 
@@ -29,6 +35,40 @@ def GD(x,a,e):
         
         print(f"{iter:<6} | {temp:<12.5f} | {df(x) :<12.5f} | {step_size :<12.5f} | {x :<12.5f} | {f(x) :<12.5f}")
         
+        xlst.append(iter)
+        ylst.append(f(x))
         
-GD(0,0.1,0.01)
+    return xlst,ylst
+        
+# called the function
+x,y = GD(0,0.1,0.01)
+x1,y1 = GD(0,0.2,0.01)
+x2,y2 = GD(0,0.3,0.01)
+x3,y3 = GD(0,0.4,0.01)
+x4,y4 = GD(0,0.5,0.01)
+x5,y5 = GD(0,0.7,0.01)
+# x6,y6 = GD(0,0.8,0.01) divergence starts here and infinite iterations 
+# x7,y7 = GD(0,1,0.01)
+# x8,y8 = GD(0,1.5,0.01)
+
+# plotting
+plt.plot(x,y,marker='o')
+plt.plot(x1,y1,marker='o')
+plt.plot(x2,y2,marker='o')
+plt.plot(x3,y3,marker='o')
+plt.plot(x4,y4,marker='o')
+plt.plot(x5,y5,marker='o')
+# plt.plot(x6,y6,marker='o')
+# plt.plot(x7,y7,marker='o')
+
+
+plt.title("iteration vs cost function")
+plt.xlabel("iteration number")
+plt.ylabel("cost function value at that iteration")
+plt.grid(True)
+
+plt.show()
+
+
+
         
