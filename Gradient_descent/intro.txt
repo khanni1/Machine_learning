@@ -1,0 +1,3 @@
+Gradient descent is an iterative optimization algorithm used to find the minimum of a
+cost or loss function. It works by starting at a random point, calculating 
+the slope (gradient), and taking steps in the opposite direction
