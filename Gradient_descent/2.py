@@ -1,6 +1,19 @@
 # a0 and a1, 2 features !
 
-def SSE(a0,a1,m,xdata:list,ydata:list):
+def f(a0,a1,x):
+    return a0 + a1*x
+
+def pdf(i,x):
+    if(i == 0):
+        return 1
+    elif(i == 1):
+        return x
+
+    
+
+
+def SSE(a0,a1,m,xdata:list,ydata:list,ax):
+    # ax specifies partial differentiation wrt a0,a1,..,an
     
     sum = 0
     
@@ -12,14 +25,13 @@ def SSE(a0,a1,m,xdata:list,ydata:list):
         
     return sum
 
-def MSSE(a0,a1,m,xdata:list,ydata:list):
+# def MSSE(a0,a1,m,xdata:list,ydata:list):
 
-    ans = SSE(a0,a1,m,xdata,ydata)/(2*m)
+#     ans = SSE(a0,a1,m,xdata,ydata)/(2*m)
     
-    return ans
+#     return ans
 
-def df(x):
-    return
+
 
 def GD(x,x1,a,e):
 
