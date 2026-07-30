@@ -22,7 +22,9 @@ def GD(x,a,e):
     print(f"{'Iter':<6} | {'x':<12} | {'df(x)':<12} | {'a*df(x)':<12} | {'x_new':<12} | {'f(x)':<12} |")
     print("-" * 70)
     
-    while (abs(step_size) >= e):
+    # iter <= 100 for force stop
+    
+    while (abs(step_size) >= e and iter <= 21):
         
         step_size = a*df(x)
         
@@ -46,21 +48,21 @@ x1,y1 = GD(0,0.2,0.01)
 x2,y2 = GD(0,0.3,0.01)
 x3,y3 = GD(0,0.4,0.01)
 x4,y4 = GD(0,0.5,0.01)
-x5,y5 = GD(0,0.7,0.01)
-# x6,y6 = GD(0,0.8,0.01) divergence starts here and infinite iterations 
-# x7,y7 = GD(0,1,0.01)
-# x8,y8 = GD(0,1.5,0.01)
+
+x5,y5 = GD(0,0.99,0.01)
+
+
 
 # plotting
-plt.plot(x,y,marker='o')
-plt.plot(x1,y1,marker='o')
-plt.plot(x2,y2,marker='o')
-plt.plot(x3,y3,marker='o')
-plt.plot(x4,y4,marker='o')
-plt.plot(x5,y5,marker='o')
-# plt.plot(x6,y6,marker='o')
-# plt.plot(x7,y7,marker='o')
+plt.plot(x,y,marker='o',label = "a = 0.1")
+plt.plot(x1,y1,marker='o',label = "a = 0.2")
+plt.plot(x2,y2,marker='o',label = "a = 0.3")
+plt.plot(x3,y3,marker='o',label = "a = 0.4")
+plt.plot(x4,y4,marker='o',label = "a = 0.5")
+plt.plot(x5,y5,marker='o',label = "a = large")
 
+
+plt.legend()
 
 plt.title("iteration vs cost function")
 plt.xlabel("iteration number")
