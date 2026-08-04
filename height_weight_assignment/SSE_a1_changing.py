@@ -30,7 +30,7 @@ a0 = -22.72372
 a1 = 0.47603
 
 
-#  a1 is constant
+#  a0 is constant
 for i in np.arange(-1.5,2.5+incr,incr):
     l2.append(J(a0,i,50,x,y))
     l1.append(i)
