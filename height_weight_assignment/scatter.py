@@ -51,10 +51,10 @@ yc = []
 
 # print(len(x),len(y))
 
-# print(sum_xi)
-# print(sum_yi)
-# print(sum_xi_sq)
-# print(sum_xi_yi)
+print(sum_xi)
+print(sum_yi)
+print(sum_xi_sq)
+print(sum_xi_yi)
 
 
 
