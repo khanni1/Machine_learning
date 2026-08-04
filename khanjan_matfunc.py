@@ -9,7 +9,7 @@ def scalar_mul(A:list,s):
     
     for i in range(0,rows):
         for j in range(0,cols):
-            temp[i][j] = round(A[i][j] * s,5)
+            temp[i][j] = A[i][j] * s
             
     return temp
 # ==============================================================
