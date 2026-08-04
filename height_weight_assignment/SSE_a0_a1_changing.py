@@ -41,26 +41,20 @@ for i in np.arange(-80,40+incr_i,incr_i):
         
 
         
-plt.figure(figsize=(9, 6))
+plt.figure(figsize=(8, 6))
 
-min_cost = min(l3)
+# A standard contour plot with 25 automatically spaced levels
+contours = plt.tricontour(l1, l2, l3, levels=25, cmap="viridis")
 
-# FOCUS ON MINIMA: We only create 25 rings starting from the absolute lowest cost, 
-# and stopping exactly 300 units above it. The high outer edges are completely ignored.
-custom_levels = np.linspace(min_cost, min_cost + 300, 25)
+# Add the standard labels
+plt.clabel(contours, inline=True, fontsize=8)
 
-# Plot the un-filled rings using our restricted levels
-rings = plt.tricontour(l1, l2, l3, levels=custom_levels, cmap="viridis")
-
-# Adds the numerical cost values directly onto the contour lines
-plt.clabel(rings, inline=True, fontsize=8, fmt="%.0f")
-
-# Mark the global minimum
+# Mark the center
 plt.plot(-22.72, 0.47, 'rx', markersize=8, markeredgewidth=2, label="Global Minimum")
 
 plt.xlabel("a0 (Intercept)")
 plt.ylabel("a1 (Slope)")
-plt.title("Contour Rings (Focused Strictly on the Minima)")
+plt.title("Standard Contour Plot of Cost Function")
 plt.legend()
 plt.grid(True, linestyle='--', alpha=0.5)
 
