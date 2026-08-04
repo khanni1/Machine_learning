@@ -76,3 +76,28 @@ plt.legend()
 plt.grid(True)
 plt.title("height vs weight")
 plt.show()
+
+# SSE
+
+def SSE_1(y:list,yc:list):
+    
+    if(len(y) != len(yc)):
+        return "data incorrect"
+    
+    sse = 0
+    
+    for i in range(0,len(y)):
+       ei =  y[i] - yc[i] 
+       sse = sse + ei**2
+       
+    return sse
+
+print(SSE_1(y,yc))
+
+
+
+
+
+
+
+        
