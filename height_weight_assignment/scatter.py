@@ -41,13 +41,20 @@ C= k.mat_mul(k.mat_inverse(A),B)
 
 k.pretty_print_2D(C)
 
+a0 = C[0][0]
 
-print(len(x),len(y))
+a1 = C[1][0]
 
-print(sum_xi)
-print(sum_yi)
-print(sum_xi_sq)
-print(sum_xi_yi)
+yc = []
+
+
+
+# print(len(x),len(y))
+
+# print(sum_xi)
+# print(sum_yi)
+# print(sum_xi_sq)
+# print(sum_xi_yi)
 
 
 
@@ -56,15 +63,16 @@ print(sum_xi_yi)
 
 # to plot need to calculate many values of y from x OR just use set of x values to calculate corresponding y values
 
-# for i in x:
-#     yc.append(a0+a1*i)
+for i in range(0,len(x),1):
+    yc.append(a0+a1*x[i])  
+    
     
 
-# plt.plot(x,y,marker='o',label="x vs y")
-# # plt.plot(x,yc,label="regression line")
-# plt.xlabel("height")
-# plt.ylabel("weight")
-# plt.legend()
-# plt.grid(True)
-# plt.title("height vs weight")
-# plt.show()
+plt.scatter(x,y,marker='o',label="x vs y")
+plt.plot(x,yc,label="regression line")
+plt.xlabel("height")
+plt.ylabel("weight")
+plt.legend()
+plt.grid(True)
+plt.title("height vs weight")
+plt.show()
