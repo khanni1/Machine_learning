@@ -183,38 +183,3 @@ def mat_inverse(A:list):
     
     return scalar_mul(adj,1.0/x)
 # ==============================================================
-# main area for testing
-
-X = [
-    [1,2,4],
-    [5,6,6],
-    [5,6,8],
-    ]
-
-A1 = [
-    [3,2],
-    [1,5],
-    [3,2],
-    ]
-
-
-A2 = [
-    [10,20],
-    [30,40],
-]
-
-Y = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9],
-]
-
-pretty_print_2D(mat_mul(A1,A2))
-print()
-pretty_print_2D(scalar_mul(X,0.5))
-print()
-print(det(A2))
-print()
-pretty_print_2D(adjoint(A2))
-print()
-pretty_print_2D(mat_inverse(A2))
