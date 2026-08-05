@@ -9,3 +9,4 @@ def height_weight(x):
 while(True):
     height = float(input("Enter height to predict corresponding weight : "))
     print("weight : ",height_weight(height))
+    
