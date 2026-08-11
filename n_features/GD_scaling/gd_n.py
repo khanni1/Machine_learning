@@ -30,7 +30,6 @@ def GD(x:list,y:list,a:list,al,max_iter):
     return a
 
 
-import khanjan_matfunc as k
 
 x = [
     [1,1,1,1,1], # x0
@@ -38,8 +37,6 @@ x = [
     [12,6,6,3,18], # x2
 ]
 
-if(not k.isnt_jagged(x)):
-    print("x not a mat error")
 
 y = [0.6,1.2,1.0,0.7,0.3]
 
