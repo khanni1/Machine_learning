@@ -1,4 +1,7 @@
 https://archive.ics.uci.edu/dataset/242/energy+efficiency?utm_source=chatgpt.com
+
+https://www.geogebra.org/m/TqjHVHky perfect animation for integral understanding
+
 good source for ml datasets
 
 CHATGPT 
