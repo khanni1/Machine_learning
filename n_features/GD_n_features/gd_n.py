@@ -1,3 +1,5 @@
+# gpt says this is correct implemention of gd by me
+
 def yicap(a:list,x:list,i,n):
     sumx = 0
     for j in range(0,n):
@@ -27,7 +29,7 @@ def GD(x:list,y:list,a:list,al,max_iter):
             temp[j] = a[j] + (al/m)*step
             
     
-    return a
+    return temp
 
 
 
