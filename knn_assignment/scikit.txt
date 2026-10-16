@@ -1,0 +1,12 @@
+from sklearn.datasets import load_iris
+
+# Load the dataset object
+iris = load_iris()
+
+# Convert it into a Pandas DataFrame
+
+import pandas as pd
+df =pd.DataFrame(data=iris.data, columns=iris.feature_names)
+
+print(df.head())
+[16/09, 3:10 pm] Ansh College: Inbuilt dataset for AP and Python
