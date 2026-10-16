@@ -29,10 +29,10 @@ def knn(df,qp,tar,k=3,p=2):
     return res[0:k]
 
 
-print(knn(data,[4.9,3,1.4,0.2],tar))
+print(knn(data,[6.2,3.4,5.4,2.3],tar))
 
-print(data.iloc[34])
-print(data.iloc[45])
+# print(data.iloc[34])
+# print(data.iloc[45])
     
     
         
