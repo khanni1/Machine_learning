@@ -10,7 +10,7 @@ data_original = pd.DataFrame(data = ir.data , columns = ir.feature_names)
 
 data_original['tar'] = ir.target
 
-data = data_original.sample(frac=1).reset_index(drop=True) # shuffle the dataset
+data = data_original.sample(frac=1).reset_index(drop=True) # shuffle the dataset 
 
 
 mapper = {0: 'setosa', 1: 'versicolor', 2: 'virginica'} 
@@ -25,21 +25,27 @@ training = data.head(trains)
 testing = data.tail(tests)
 
 
-wrong = {}
+wrong = []
+k_value = []
 
 x_testing = testing.drop(columns='tar')
 x_training = training.drop(columns='tar')
 
-for k in range(1,16,2):
+for k in range(1,30,2):
     wrongs = 0
     for t in range(0,tests):
         prediction = ml.knn(x_training , list(x_testing.iloc[t]) ,training['tar'],k,1)
         if prediction != testing.iloc[t]['tar']:
             wrongs += 1
-            
-    wrong[k] = round(wrongs/tests,3)
     
-print(wrong)
+    k_value.append(k)
+    wrong.append(round(wrongs/tests,3)*100)  
+    
+plt.plot(k_value,wrong,marker='o')
+plt.grid(True)
+plt.xlabel("k_values")
+plt.ylabel("KNN_wrong %")
+plt.show()
         
         
             
