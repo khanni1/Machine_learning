@@ -37,7 +37,7 @@ for k in range(1,16,2):
         if prediction != testing.iloc[t]['tar']:
             wrongs += 1
             
-    wrong[k] = wrongs
+    wrong[k] = round(wrongs/tests,3)
     
 print(wrong)
         

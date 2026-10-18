@@ -24,7 +24,7 @@ def knn(df,qp,tar,k=3,otype = 0,p=2):
     
     res = res.sort_values(by = 'distances')
     
-    res = res[0:k] #first k of sorted records
+    res = res.head(k) #first k of sorted records
     
     if(otype == 0):
         return res
