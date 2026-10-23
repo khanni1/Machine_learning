@@ -3,19 +3,21 @@ import numpy as np
 
 def mean_normalise(x,type = 1):
     mu = np.mean(x)
+    
+    if(np.all(x == 1)):
+        return x
+    
     range = max(x) - min(x)
     stddev = np.std(x)
     
-    # clamp case
-    if(range == 0):
-        range = min(x)
-    if(stddev == 0):
-        stddev = min(x)
-    
-    if (type):
-        xn = (x - mu)/range
+    if type:
+        if range == 0:
+            return x - mu
+        xn = (x - mu) / range
     else:
-        xn = (x-mu)/stddev
+        if stddev == 0:
+            return x - mu
+        xn = (x - mu) / stddev
     
     return xn
 
@@ -35,15 +37,14 @@ x = np.array([
 
 def bulk_scale(x):
     x = x.T
-    
-    m = len(x[1])
+
     n = len(x)
     
     
-    x_fs = np.zeros((n,m))
+    x_fs = x.copy()
     
-
-    for j in range(0,n):
-        x_fs[j] = mean_normalise(x[j])
+    # skipped x[0] as all are 1 and to be kept 1
+    for j in range(1,n):
+        x_fs[j] = mean_normalise(x[j],0)
         
     return (x_fs.T)
