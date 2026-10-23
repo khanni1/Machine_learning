@@ -45,6 +45,6 @@ def bulk_scale(x):
     
     # skipped x[0] as all are 1 and to be kept 1
     for j in range(1,n):
-        x_fs[j] = mean_normalise(x[j],0)
+        x_fs[j] = mean_normalise(x[j])
         
     return (x_fs.T)

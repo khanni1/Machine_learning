@@ -53,3 +53,26 @@ for k in range(0,100):
 
 
 print(a)
+
+#  just testing
+
+xt = x.T 
+
+qp = np.ones(5)
+
+
+
+# for j in range(0,5):
+#     temp = float(input(f"enter feature {j} : "))
+    
+#     mu = np.mean(xt[j])
+    
+#     range = max(xt[j]) - min(xt[j])
+    
+#     if (range):
+#         qp[j] = (temp - mu)/range
+#     else:
+#         qp[j] = temp-mu
+        
+
+print(sig(a,np.array([ 1 ,-0.35531915,  0.36666667,  0.12083333, -0.44615385])))
