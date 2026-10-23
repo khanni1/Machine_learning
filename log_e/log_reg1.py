@@ -1,6 +1,6 @@
-
 import numpy as np
 import pandas as pd 
+import feature_scaler as fs
 
 def sig(a,x):
     ans = 1/(1+np.exp(-z(a,x)))
@@ -29,15 +29,20 @@ x = np.array([
     [1,  0.3,  2.5,  1.9,  1.3],
     [1,  3.5,  0.4,  0.6,  3.9],
     [1, -0.9,  2.2,  2.6,  0.2],
-])       
+])   
 
 y = np.array([1, 1, 1, 0, 1, 0, 0, 0, 1, 0])   # shape (10,)
 
 m = len(y)
 
+x = fs.bulk_scale(x)
+print(x)
+       
+
+
 al = 0.1
 
-for k in range(0,1000):
+for k in range(0,100):
     for j in range(0,n,1):
         summ = 0 
         for i in range(0,m,1):
