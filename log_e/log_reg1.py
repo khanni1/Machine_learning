@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd 
 import feature_scaler as fs
+import matplotlib.pyplot as plt
 
 def sig(a,x):
     ans = 1/(1+np.exp(-z(a,x)))
@@ -58,21 +59,27 @@ print(a)
 
 xt = x.T 
 
-qp = np.ones(5)
+p1 = []
+p2 = np.arange(0,m,1)
 
 
+for i in x:
+    if sig(a,i) >= 0.5:
+        p1.append(1)
+    else:
+        p1.append(0)
+        
+plt.scatter(p2,p1,marker='o',color='red',s=100)
+plt.scatter(p2,y,marker='o',color='blue')
+plt.grid(True)
+plt.show()
+        
+    
+    
+        
+    
+    
 
-# for j in range(0,5):
-#     temp = float(input(f"enter feature {j} : "))
-    
-#     mu = np.mean(xt[j])
-    
-#     range = max(xt[j]) - min(xt[j])
-    
-#     if (range):
-#         qp[j] = (temp - mu)/range
-#     else:
-#         qp[j] = temp-mu
         
 
-print(sig(a,np.array([ 1 ,-0.35531915,  0.36666667,  0.12083333, -0.44615385])))
+
